@@ -2,7 +2,8 @@
     "name": "7Segment",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "BetterArrays": "github:sargedev/betterarrays#v1.2.1"
     },
     "files": [
         "main.ts",
