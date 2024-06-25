@@ -29,13 +29,24 @@ namespace sevenSegment {
 
     class SevenSegment extends sprites.ExtendableSprite {
         private segments: boolean[];
+        private _color: number;
 
         constructor() {
             super(image.create(0, 0));
             this.segments = arrays.repeat(false, 7);
+            this.color = 2;
         }
 
-        toggle(segment: SegmentPos, enabled: boolean) {
+        get color(): number {
+            return this._color;
+        }
+
+        set color(value: number) {
+            this._color = value;
+            this.render();
+        }
+
+        toggle(segment: SegmentPos, enabled: boolean=true) {
             this.segments[segment] = enabled;
             this.render();
         }
@@ -45,10 +56,13 @@ namespace sevenSegment {
             let y = this.y;
             let rendered = image.create(15, 32);
             let segment: Segment;
+            let segmentImg: Image;
             for (let i = 0; i < 7; i++) {
                 segment = segments[i];
                 if (this.segments[i]) {
-                    rendered.drawTransparentImage(segment.image, segment.x, segment.y);
+                    segmentImg = segment.image;
+                    segmentImg.replace(2, this.color);
+                    rendered.drawTransparentImage(segmentImg, segment.x, segment.y);
                 }
             }
             this.setImage(rendered);
