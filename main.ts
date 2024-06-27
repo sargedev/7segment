@@ -17,6 +17,10 @@ namespace sevenSegment {
         y: number;
     }
 
+    interface Character {
+        [key: string]: boolean[];
+    }
+
     const segments: Segment[] = [
         {image: assets.image`T`, x: 1, y: 0},
         {image: assets.image`L`, x: 0, y: 2},
@@ -31,10 +35,10 @@ namespace sevenSegment {
         private segments: boolean[];
         private _color: number;
 
-        constructor() {
+        constructor(segments?: boolean[], color?: number) {
             super(image.create(0, 0));
-            this.segments = arrays.repeat(false, 7);
-            this.color = 2;
+            this.segments = segments || arrays.repeat(false, 7);
+            this.color = color !== undefined ? color : 2;
         }
 
         get color(): number {
@@ -68,5 +72,24 @@ namespace sevenSegment {
             this.setImage(rendered);
             this.setPosition(x, y);
         }
+    }
+
+    let characters: Character = {
+        "0": [true, true, true, false, true, true, true],
+        "1": [false, false, true, false, false, false, true],
+        "2": [true, false, true, true, true, true, false],
+        "3": [true, false, true, true, true, false, true],
+        "4": [false, true, true, true, false, false, true],
+        "5": [true, true, false, true, true, false, true],
+        "6": [true, true, false, true, true, true, true],
+        "7": [true, false, true, false, false, false, true],
+        "8": [true, true, true, true, true, true, true],
+        "9": [true, true, true, true, true, false, true],
+        "A": [true, true, true, true, false, true, true],
+        "B": [false, true, false, true, true, true, true],
+        "C": [true, true, false, false, true, true, false],
+        "D": [false, false, true, true, true, true, true],
+        "E": [true, true, false, true, true, true, false],
+        "F": [true, true, false, true, false, true, false]
     }
 }
