@@ -21,6 +21,8 @@ namespace sevenSegment {
         [key: string]: boolean[];
     }
 
+    const EMPTY = arrays.repeat(false, 7);
+
     const segments: Segment[] = [
         {image: assets.image`T`, x: 1, y: 0},
         {image: assets.image`L`, x: 0, y: 2},
@@ -37,7 +39,7 @@ namespace sevenSegment {
 
         constructor(segments?: boolean[], color?: number) {
             super(image.create(0, 0));
-            this.segments = segments || arrays.repeat(false, 7);
+            this.segments = segments || EMPTY;
             this.color = color !== undefined ? color : 2;
         }
 
@@ -52,6 +54,12 @@ namespace sevenSegment {
 
         toggle(segment: SegmentPos, enabled: boolean=true) {
             this.segments[segment] = enabled;
+            this.render();
+        }
+
+        drawCharacter(char: string) {
+            let segments = characters[char] || EMPTY;
+            this.segments = segments;
             this.render();
         }
 
