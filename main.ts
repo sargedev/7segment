@@ -17,7 +17,7 @@ namespace sevenSegment {
         y: number;
     }
 
-    interface Character {
+    interface Characters {
         [key: string]: boolean[];
     }
 
@@ -36,11 +36,13 @@ namespace sevenSegment {
     class SevenSegment extends sprites.ExtendableSprite {
         private segments: boolean[];
         private _color: number;
+        private characters: Characters;
 
         constructor(segments?: boolean[], color?: number) {
             super(image.create(0, 0));
             this.segments = segments || EMPTY;
             this.color = color !== undefined ? color : 2;
+            this.characters = characters;
         }
 
         get color(): number {
@@ -58,7 +60,7 @@ namespace sevenSegment {
         }
 
         drawCharacter(char: string) {
-            let segments = characters[char] || EMPTY;
+            let segments = this.characters[char] || EMPTY;
             this.segments = segments;
             this.render();
         }
@@ -82,7 +84,7 @@ namespace sevenSegment {
         }
     }
 
-    let characters: Character = {
+    let characters: Characters = {
         "0": [true, true, true, false, true, true, true],
         "1": [false, false, true, false, false, false, true],
         "2": [true, false, true, true, true, true, false],
