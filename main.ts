@@ -60,7 +60,8 @@ namespace sevenSegment {
         }
 
         drawCharacter(char: string) {
-            let segments = this.characters[char] || EMPTY;
+            let segments = this.characters[char] || this.characters[char.toUpperCase()];
+            segments = segments || EMPTY;
             this.segments = segments;
             this.render();
         }
@@ -100,6 +101,19 @@ namespace sevenSegment {
         "C": [true, true, false, false, true, true, false],
         "D": [false, false, true, true, true, true, true],
         "E": [true, true, false, true, true, true, false],
-        "F": [true, true, false, true, false, true, false]
+        "F": [true, true, false, true, false, true, false],
+        "H": [false, true, true, true, false, true, true],
+        "I": [false, false, true, false, false, false, true],
+        "J": [false, false, true, false, true, true, true],
+        "L": [false, true, false, false, true, true, false],
+        "N": [false, false, false, true, false, true, true],
+        "O": [false, false, false, true, true, true, true],
+        "P": [true, true, true, true, false, true, false],
+        "R": [false, false, false, true, false, true, false],
+        "S": [true, true, false, true, true, false, true],
+        "U": [false, true, true, false, true, true, true],
+        "-": [false, false, false, true, false, false, false],
+        "_": [false, false, false, false, true, false, false],
+        "°": [true, true, true, true, false, false, false]
     }
 }
