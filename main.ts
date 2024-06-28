@@ -65,7 +65,7 @@ namespace sevenSegment {
             this.render();
         }
 
-        render() {
+        private render() {
             let x = this.x;
             let y = this.y;
             let rendered = image.create(15, 32);
@@ -96,10 +96,16 @@ namespace sevenSegment {
         "8": [true, true, true, true, true, true, true],
         "9": [true, true, true, true, true, false, true],
         "A": [true, true, true, true, false, true, true],
+        "a": [true, true, true, true, false, true, true],
         "B": [false, true, false, true, true, true, true],
+        "b": [false, true, false, true, true, true, true],
         "C": [true, true, false, false, true, true, false],
+        "c": [true, true, false, false, true, true, false],
         "D": [false, false, true, true, true, true, true],
+        "d": [false, false, true, true, true, true, true],
         "E": [true, true, false, true, true, true, false],
-        "F": [true, true, false, true, false, true, false]
+        "e": [true, true, false, true, true, true, false],
+        "F": [true, true, false, true, false, true, false],
+        "f": [true, true, false, true, false, true, false]
     }
 }
