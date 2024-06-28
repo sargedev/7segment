@@ -66,9 +66,7 @@ namespace sevenSegment {
             this.render();
         }
 
-        render() {
-            let x = this.x;
-            let y = this.y;
+        prerender() {
             let rendered = image.create(15, 32);
             let segment: Segment;
             let segmentImg: Image;
@@ -80,6 +78,14 @@ namespace sevenSegment {
                     rendered.drawTransparentImage(segmentImg, segment.x, segment.y);
                 }
             }
+            return rendered;
+        }
+
+        render() {
+            let x = this.x;
+            let y = this.y;
+            let rendered = this.prerender();
+
             this.setImage(rendered);
             this.setPosition(x, y);
         }
