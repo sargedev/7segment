@@ -1,5 +1,5 @@
 {
-    "name": "7Segment",
+    "name": "Better7Segment",
     "description": "",
     "dependencies": {
         "device": "*",

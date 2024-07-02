@@ -29,8 +29,8 @@ namespace sevenSegment {
         {image: assets.image`R`, x: 11, y: 2},
         {image: assets.image`M`, x: 2, y: 14},
         {image: assets.image`B`, x: 1, y: 28},
-        {image:assets.image`L`, x: 0, y: 17},
-        {image:assets.image`R`, x: 11, y: 17},
+        {image: assets.image`L`, x: 0, y: 17},
+        {image: assets.image`R`, x: 11, y: 17},
     ]
 
     class SevenSegment extends sprites.ExtendableSprite {
@@ -81,11 +81,39 @@ namespace sevenSegment {
             return rendered;
         }
 
-        render() {
+        private render() {
             let x = this.x;
             let y = this.y;
             let rendered = this.prerender();
 
+            this.setImage(rendered);
+            this.setPosition(x, y);
+        }
+    }
+
+    class SevenSegmentDisplay extends sprites.ExtendableSprite {
+        places: boolean[][];
+        spacing: number;
+
+        constructor(placeNum: number) {
+            super(image.create(0, 0));
+            this.places = arrays.repeat(EMPTY, placeNum);
+        }
+
+        render() {
+            let place: SevenSegment;
+            let places = this.places.length;
+            let rendered = image.create(15 * places + this.spacing * (places - 1), 32);
+            let xPos: number;
+
+            let x = this.x;
+            let y = this.y;
+
+            for (let i = 0; i < places; i++) {
+                place = new SevenSegment(this.places[i]);
+                xPos = 15 * i + this.spacing * ((i - 1) >= 0 ? i - 1 : 0);
+                rendered.drawTransparentImage(place.prerender(), 0, xPos);
+            }
             this.setImage(rendered);
             this.setPosition(x, y);
         }
