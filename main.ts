@@ -91,33 +91,6 @@ namespace sevenSegment {
         }
     }
 
-    class SevenSegmentDisplay extends sprites.ExtendableSprite {
-        places: SevenSegment[];
-        spacing: number;
-
-        constructor(placeNum: number, spacing: number) {
-            super(image.create(0, 0));
-            this.places = arrays.repeat(EMPTY, placeNum).map((value) => new SevenSegment(value));
-            this.spacing = spacing;
-        }
-
-        render() {
-            let places = this.places.length;
-            let rendered = image.create(15 * places + this.spacing * (places - 1), 32);
-            let xPos: number;
-
-            let x = this.x;
-            let y = this.y;
-
-            for (let i = 0; i < places; i++) {
-                xPos = 15 * i + this.spacing * ((i - 1) >= 0 ? i - 1 : 0);
-                rendered.drawTransparentImage(this.places[i].prerender(), 0, xPos);
-            }
-            this.setImage(rendered);
-            this.setPosition(x, y);
-        }
-    }
-
     let characters: Characters = {
         "0": [true, true, true, false, true, true, true],
         "1": [false, false, true, false, false, false, true],
