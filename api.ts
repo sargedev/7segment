@@ -91,6 +91,16 @@ namespace sevenSegment {
         }
     }
 
+    /**
+     * Create seven segment digit
+     * @param segments Digit segments (optional, default is none)
+     * @param color Color of the segments (optional, default is red)
+     * @returns SevenSegment sprite
+     */
+    //% blockId=sevenSegment_create
+    //% block="create digit || of $segments | with color $color"
+    //% blockSetVariable=myDigit
+    //% color.shadow=colorNumberPicker
     export function create(segments?: boolean[], color?: number): SevenSegment {
         let digit = new SevenSegment(segments, color);
         if (segments) digit.render();
