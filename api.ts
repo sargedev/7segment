@@ -103,6 +103,18 @@ namespace sevenSegment {
         return digit;
     }
 
+    export function toggle(sevenSeg: SevenSegment, segment: SegmentPos, enabled: boolean=true): void {
+        sevenSeg.toggle(segment, enabled);
+    }
+
+    export function setColor(sevenSeg: SevenSegment, color: number): void {
+        sevenSeg.color = color;
+    }
+
+    export function setCharacter(sevenSeg: SevenSegment, character: string): void {
+        sevenSeg.drawCharacter(character);
+    }
+
     let characters: Characters = {
         "0": [true, true, true, false, true, true, true],
         "1": [false, false, true, false, false, false, true],
