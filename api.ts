@@ -154,7 +154,7 @@ namespace sevenSegment {
      * @param color Segment color
      */
     //% blockId=sevenSegment_setColor
-    //% block="set $digit color $color"
+    //% block="set $digit color to $color"
     //% digit.shadow=variables_get
     //% digit.defl=myDigit
     //% color.shadow="colorNumberPicker"
@@ -162,6 +162,16 @@ namespace sevenSegment {
         digit.color = color;
     }
 
+    /**
+     * Set digit character
+     * @param digit Digit to modify
+     * @param character Character to set (must be of length 1)
+     */
+    //% blockId=sevenSegment_setCharacter
+    //% block="set $digit character to $character"
+    //% digit.shadow=variables_get
+    //% digit.defl=myDigit
+    //% character.defl="8"
     export function setCharacter(digit: SevenSegment, character: string): void {
         digit.drawCharacter(character);
     }
