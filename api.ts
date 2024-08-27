@@ -117,6 +117,17 @@ namespace sevenSegment {
         return digit;
     }
 
+    /**
+     * Create seven segment digit from character
+     * @param character Character to use (must be of length 1)
+     * @param color Color of the segments (optional, default is red)
+     * @returns SevenSegment sprite
+     */
+    //% blockId=sevenSegment_createFromChar
+    //% block="create digit from $character || with color $color"
+    //% blockSetVariable=myDigit
+    //% character.defl="8"
+    //% color.shadow=colorNumberPicker
     export function createFromChar(character: string, color?: number): SevenSegment {
         let digit = new SevenSegment(null, color);
         digit.drawCharacter(character);
