@@ -148,6 +148,16 @@ namespace sevenSegment {
         digit.toggle(segment, enabled);
     }
 
+    /**
+     * Set digit segment color
+     * @param digit Digit to modify
+     * @param color Segment color
+     */
+    //% blockId=sevenSegment_setColor
+    //% block="set $digit color $color"
+    //% digit.shadow=variables_get
+    //% digit.defl=myDigit
+    //% color.shadow="colorNumberPicker"
     export function setColor(digit: SevenSegment, color: number): void {
         digit.color = color;
     }
