@@ -134,16 +134,26 @@ namespace sevenSegment {
         return digit;
     }
 
-    export function toggle(sevenSeg: SevenSegment, segment: SegmentPos, enabled: boolean=true): void {
-        sevenSeg.toggle(segment, enabled);
+    /**
+     * Toggle specific digit segment
+     * @param digit Digit to modify
+     * @param segment Segment to toggle
+     * @param enabled Segment state (default is enabled)
+     */
+    //% blockId=sevenSegment_toggle
+    //% block="set $digit segment $segment enabled $enabled"
+    //% digit.shadow=variables_get
+    //% digit.defl=myDigit
+    export function toggle(digit: SevenSegment, segment: SegmentPos, enabled: boolean=true): void {
+        digit.toggle(segment, enabled);
     }
 
-    export function setColor(sevenSeg: SevenSegment, color: number): void {
-        sevenSeg.color = color;
+    export function setColor(digit: SevenSegment, color: number): void {
+        digit.color = color;
     }
 
-    export function setCharacter(sevenSeg: SevenSegment, character: string): void {
-        sevenSeg.drawCharacter(character);
+    export function setCharacter(digit: SevenSegment, character: string): void {
+        digit.drawCharacter(character);
     }
 
     let characters: Characters = {
