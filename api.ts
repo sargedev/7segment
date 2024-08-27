@@ -1,14 +1,24 @@
 
 enum SegmentPos {
+    //% block="Top"
     T,
+    //% block="Top Left"
     TL,
+    //% block="Top Right"
     TR,
+    //% block="Center"
     M,
+    //% block="Bottom"
     B,
+    //% block="Bottom Left"
     BL,
+    //% block="Bottom Right"
     BR
 }
 
+//% block="Seven Segment"
+//% icon="\uf00a"
+//% color=#f5ad42
 namespace sevenSegment {
 
     interface Segment {
