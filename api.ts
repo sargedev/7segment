@@ -83,8 +83,13 @@ class SevenSegment extends sprites.ExtendableSprite {
         this.characters = characters;
     }
 
-    public get color(): number {
+    get color(): number {
         return this._color;
+    }
+
+    set color(value: number) {
+        this._color = value;
+        this.render();
     }
 
     /**
@@ -95,9 +100,8 @@ class SevenSegment extends sprites.ExtendableSprite {
     //% blockId=sevenSegment_setColor
     //% block="set $this(myDigit) color to $color"
     //% color.shadow="colorindexpicker"
-    public set color(value: number) {
-        this._color = value;
-        this.render();
+    public setColor(color: number) {
+        this.color = color;
     }
 
     /**
