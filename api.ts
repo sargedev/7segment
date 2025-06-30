@@ -93,6 +93,17 @@ class SevenSegment extends sprites.ExtendableSprite {
     }
 
     /**
+     * Get digit segment color
+     * @param digit Digit to read
+     * @returns Color of digit segments
+     */
+    //% blockId=sevenSegment_getColor
+    //% block="get current $this(myDigit) color"
+    public getColor(): number {
+        return this.color;
+    }
+
+    /**
      * Set digit segment color
      * @param digit Digit to modify
      * @param color Segment color
@@ -130,6 +141,17 @@ class SevenSegment extends sprites.ExtendableSprite {
         segments = segments || EMPTY;
         this.segments = segments;
         this.render();
+    }
+
+    /**
+     * Check if digit segment is enabled
+     * @param digit Digit to read
+     * @returns True if digit segment is enabled
+     */
+    //% blockId=sevenSegment_isEnabled
+    //% block="is $this(myDigit) segment $segment enabled"
+    public isEnabled(segment: SegmentPos) {
+        return this.segments[segment];
     }
 
     prerender() {
