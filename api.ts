@@ -119,7 +119,7 @@ class SevenSegment extends sprites.ExtendableSprite {
      * @param character Character to set (must be of length 1)
      */
     //% blockId=sevenSegment_setCharacter
-    //% block="set $this(myDigit) character to $character"
+    //% block="set $this(myDigit) character to $char"
     //% character.defl="8"
     drawCharacter(char: string) {
         let segments = this.characters[char] || this.characters[char.toUpperCase()];
