@@ -31,7 +31,7 @@ namespace sevenSegment {
         [key: string]: boolean[];
     }
 
-    const EMPTY = arrays.repeat(false, 7);
+    const EMPTY: boolean[] = arrays.repeat(false, 7);
 
     const segments: Segment[] = [
         { image: assets.image`T`, x: 1, y: 0 },
@@ -55,20 +55,44 @@ namespace sevenSegment {
             this.characters = characters;
         }
 
-        get color(): number {
+        public get color(): number {
             return this._color;
         }
 
-        set color(value: number) {
+        /**
+         * Set digit segment color
+         * @param digit Digit to modify
+         * @param color Segment color
+         */
+        //% blockId=sevenSegment_setColor
+        //% block="set $this(myDigit) color to $color"
+        //% color.shadow="colorindexpicker"
+        public set color(value: number) {
             this._color = value;
             this.render();
         }
 
-        toggle(segment: SegmentPos, enabled: boolean = true) {
+        /**
+         * Toggle specific digit segment
+         * @param digit Digit to modify
+         * @param segment Segment to toggle
+         * @param enabled Segment state (default is enabled)
+         */
+        //% blockId=sevenSegment_toggle
+        //% block="set $this(myDigit) segment $segment enabled $enabled"
+        public toggle(segment: SegmentPos, enabled: boolean = true) {
             this.segments[segment] = enabled;
             this.render();
         }
 
+        /**
+         * Set digit character
+         * @param digit Digit to modify
+         * @param character Character to set (must be of length 1)
+         */
+        //% blockId=sevenSegment_setCharacter
+        //% block="set $this(myDigit) character to $character"
+        //% character.defl="8"
         drawCharacter(char: string) {
             let segments = this.characters[char] || this.characters[char.toUpperCase()];
             segments = segments || EMPTY;
@@ -132,48 +156,6 @@ namespace sevenSegment {
         let digit = new SevenSegment(null, color);
         digit.drawCharacter(character);
         return digit;
-    }
-
-    /**
-     * Toggle specific digit segment
-     * @param digit Digit to modify
-     * @param segment Segment to toggle
-     * @param enabled Segment state (default is enabled)
-     */
-    //% blockId=sevenSegment_toggle
-    //% block="set $digit segment $segment enabled $enabled"
-    //% digit.shadow=variables_get
-    //% digit.defl=myDigit
-    export function toggle(digit: SevenSegment, segment: SegmentPos, enabled: boolean=true): void {
-        digit.toggle(segment, enabled);
-    }
-
-    /**
-     * Set digit segment color
-     * @param digit Digit to modify
-     * @param color Segment color
-     */
-    //% blockId=sevenSegment_setColor
-    //% block="set $digit color to $color"
-    //% digit.shadow=variables_get
-    //% digit.defl=myDigit
-    //% color.shadow="colorindexpicker"
-    export function setColor(digit: SevenSegment, color: number): void {
-        digit.color = color;
-    }
-
-    /**
-     * Set digit character
-     * @param digit Digit to modify
-     * @param character Character to set (must be of length 1)
-     */
-    //% blockId=sevenSegment_setCharacter
-    //% block="set $digit character to $character"
-    //% digit.shadow=variables_get
-    //% digit.defl=myDigit
-    //% character.defl="8"
-    export function setCharacter(digit: SevenSegment, character: string): void {
-        digit.drawCharacter(character);
     }
 
     let characters: Characters = {
