@@ -110,7 +110,7 @@ namespace sevenSegment {
     //% blockId=sevenSegment_create
     //% block="create digit || of $segments | with color $color"
     //% blockSetVariable=myDigit
-    //% color.shadow=colorNumberPicker
+    //% color.shadow=colorindexpicker
     export function create(segments?: boolean[], color?: number): SevenSegment {
         let digit = new SevenSegment(segments, color);
         if (segments) digit.render();
@@ -127,7 +127,7 @@ namespace sevenSegment {
     //% block="create digit from $character || with color $color"
     //% blockSetVariable=myDigit
     //% character.defl="8"
-    //% color.shadow=colorNumberPicker
+    //% color.shadow=colorindexpicker
     export function createFromChar(character: string, color?: number): SevenSegment {
         let digit = new SevenSegment(null, color);
         digit.drawCharacter(character);
@@ -157,7 +157,7 @@ namespace sevenSegment {
     //% block="set $digit color to $color"
     //% digit.shadow=variables_get
     //% digit.defl=myDigit
-    //% color.shadow="colorNumberPicker"
+    //% color.shadow="colorindexpicker"
     export function setColor(digit: SevenSegment, color: number): void {
         digit.color = color;
     }
@@ -207,6 +207,4 @@ namespace sevenSegment {
         "_": [false, false, false, false, true, false, false],
         "°": [true, true, true, true, false, false, false]
     }
-
-    
 }
