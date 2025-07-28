@@ -73,7 +73,7 @@ const segments: Segment[] = [
 //% blockNamespace="sevenSegment"
 class SevenSegment extends sprites.ExtendableSprite {
     private segments: boolean[];
-    private _color: number;
+    private color: number;
     private characters: Characters;
 
     constructor(segments?: boolean[], color?: number) {
@@ -81,15 +81,6 @@ class SevenSegment extends sprites.ExtendableSprite {
         this.segments = segments || EMPTY;
         this.color = color !== undefined ? color : 2;
         this.characters = characters;
-    }
-
-    get color(): number {
-        return this._color;
-    }
-
-    set color(value: number) {
-        this._color = value;
-        this.render();
     }
 
     /**
@@ -115,6 +106,7 @@ class SevenSegment extends sprites.ExtendableSprite {
     //% group="Modify"
     public setColor(color: number) {
         this.color = color;
+        this.render();
     }
 
     /**
