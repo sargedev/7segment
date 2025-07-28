@@ -99,6 +99,7 @@ class SevenSegment extends sprites.ExtendableSprite {
      */
     //% blockId=sevenSegment_getColor
     //% block="get current $this(myDigit) color"
+    //% group="Read"
     public getColor(): number {
         return this.color;
     }
@@ -111,6 +112,7 @@ class SevenSegment extends sprites.ExtendableSprite {
     //% blockId=sevenSegment_setColor
     //% block="set $this(myDigit) color to $color"
     //% color.shadow="colorindexpicker"
+    //% group="Modify"
     public setColor(color: number) {
         this.color = color;
     }
@@ -123,6 +125,7 @@ class SevenSegment extends sprites.ExtendableSprite {
      */
     //% blockId=sevenSegment_toggle
     //% block="set $this(myDigit) segment $segment enabled $enabled"
+    //% group="Modify"
     public toggle(segment: SegmentPos, enabled: boolean = true) {
         this.segments[segment] = enabled;
         this.render();
@@ -136,6 +139,7 @@ class SevenSegment extends sprites.ExtendableSprite {
     //% blockId=sevenSegment_setCharacter
     //% block="set $this(myDigit) character to $char"
     //% character.defl="8"
+    //% group="Modify"
     drawCharacter(char: string) {
         let segments = this.characters[char] || this.characters[char.toUpperCase()];
         segments = segments || EMPTY;
@@ -150,6 +154,7 @@ class SevenSegment extends sprites.ExtendableSprite {
      */
     //% blockId=sevenSegment_isEnabled
     //% block="is $this(myDigit) segment $segment enabled"
+    //% group="Read"
     public isEnabled(segment: SegmentPos) {
         return this.segments[segment];
     }
@@ -182,6 +187,7 @@ class SevenSegment extends sprites.ExtendableSprite {
 //% block="Seven Segment"
 //% icon="\uf00a"
 //% color=#f5ad42
+//% groups=["Create", "Modify", "Read"]
 namespace sevenSegment {
 
     /**
@@ -194,6 +200,7 @@ namespace sevenSegment {
     //% block="create digit || of $segments | with color $color"
     //% blockSetVariable=myDigit
     //% color.shadow=colorindexpicker
+    //% group="Create"
     export function create(segments?: boolean[], color?: number): SevenSegment {
         let digit = new SevenSegment(segments, color);
         if (segments) digit.render();
@@ -211,6 +218,7 @@ namespace sevenSegment {
     //% blockSetVariable=myDigit
     //% character.defl="8"
     //% color.shadow=colorindexpicker
+    //% group="Create"
     export function createFromChar(character: string, color?: number): SevenSegment {
         let digit = new SevenSegment(null, color);
         digit.drawCharacter(character);
